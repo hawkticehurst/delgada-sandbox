@@ -1,0 +1,108 @@
+<script>
+  window.addEventListener('load', () => {
+    const appTab = document.getElementById('app-html-tab-3');
+    const appContainer = document.getElementById('app-html-container-3');
+    const counterTab = document.getElementById('counter-html-tab');
+    const counterContainer = document.getElementById('counter-html-container');
+
+    appTab.addEventListener('click', () => {
+      appContainer.classList.remove('hidden');
+      counterContainer.classList.add('hidden');
+    });
+    counterTab.addEventListener('click', () => {
+      counterContainer.classList.remove('hidden');
+      appContainer.classList.add('hidden');
+    });
+  });
+</script>
+
+<section class="code-block-container">
+  <section class="tabs-container">
+    <p id="app-html-tab-3">app.html</p>
+    <p id="counter-html-tab">counter.html</p>
+  </section>
+  <section id="app-html-container-3">
+    <p class="code-line">&lt;!--</p>
+    <p class="code-line">&nbsp;&nbsp;import './counter.html'</p>
+    <p class="code-line">--&gt;</p>
+    <p class="code-line">&nbsp;</p>
+    <p class="code-line">
+      <span class="red">&lt;counter</span>
+      <span class="red">/&gt;</span>
+    </p>
+  </section>
+  <section id="counter-html-container" class="hidden">
+    <p class="code-line"><span class="red">&lt;script&gt;</span></p>
+    <p class="code-line">&nbsp;&nbsp;window.addEventListener('load', () => {</p>
+    <p class="code-line">
+      &nbsp;&nbsp;&nbsp;&nbsp;const button = document.querySelector('button');
+    </p>
+    <p class="code-line">
+      &nbsp;&nbsp;&nbsp;&nbsp;button.addEventListener('click',
+      incremementCount);
+    </p>
+    <p class="code-line">&nbsp;&nbsp;});</p>
+    <p class="code-line">&nbsp;</p>
+    <p class="code-line">&nbsp;&nbsp;function incremementCount() {</p>
+    <p class="code-line">
+      &nbsp;&nbsp;&nbsp;&nbsp;const countSpan =
+      document.getElementById('count');
+    </p>
+    <p class="code-line">
+      &nbsp;&nbsp;&nbsp;&nbsp;let count = parseInt(countSpan.textContent);
+    </p>
+    <p class="code-line">
+      &nbsp;&nbsp;&nbsp;&nbsp;countSpan.textContent = count + 1;
+    </p>
+    <p class="code-line">&nbsp;&nbsp;}</p>
+    <p class="code-line"><span class="red">&lt;/script&gt;</span></p>
+    <p class="code-line">&nbsp;</p>
+    <p class="code-line">
+      <span class="red">&lt;button&gt;</span>Clicked
+      <span class="red">&lt;span</span> <span class="orange">id</span>=<span
+        class="green"
+        >"count"</span
+      ><span class="red">&gt;</span>0<span class="red">&lt;/span&gt;</span>
+      times<span class="red">&lt;/button&gt;</span>
+    </p>
+    <p class="code-line">&nbsp;</p>
+    <p class="code-line"><span class="red">&lt;style&gt;</span></p>
+    <p class="code-line">&nbsp;&nbsp;button {</p>
+    <p class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;font-family: inherit;</p>
+    <p class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;font-size: 16px;</p>
+    <p class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;border: none;</p>
+    <p class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;border-radius: 50px;</p>
+    <p class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;color: white;</p>
+    <p class="code-line">
+      &nbsp;&nbsp;&nbsp;&nbsp;background-color: rgb(67, 42, 230);
+    </p>
+    <p class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;padding: 0.75rem 1rem;</p>
+    <p class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;margin: 1rem;</p>
+    <p class="code-line">&nbsp;&nbsp;}</p>
+    <p class="code-line">&nbsp;</p>
+    <p class="code-line">&nbsp;&nbsp;button:hover {</p>
+    <p class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;cursor: pointer;</p>
+    <p class="code-line">
+      &nbsp;&nbsp;&nbsp;&nbsp;background-color: rgb(53, 32, 187);
+    </p>
+    <p class="code-line">&nbsp;&nbsp;}</p>
+    <p class="code-line"><span class="red">&lt;/style&gt;</span></p>
+  </section>
+</section>
+
+<style>
+  .code-block-container {
+    background-color: rgb(49, 50, 55);
+    width: 500px;
+    height: 300px;
+    border-radius: 8px 0 0 8px;
+    padding: 0;
+    overflow: auto;
+  }
+
+  .code-line {
+    color: rgb(215, 215, 215);
+    font-family: monospace;
+    line-height: 0.5rem;
+  }
+</style>

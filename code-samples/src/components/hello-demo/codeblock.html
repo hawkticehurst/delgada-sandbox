@@ -1,0 +1,92 @@
+<script>
+  window.addEventListener('load', () => {
+    const appTab = document.getElementById('app-html-tab');
+    const appContainer = document.getElementById('app-html-container');
+    const helloTab = document.getElementById('hello-html-tab');
+    const helloContainer = document.getElementById('hello-html-container');
+
+    appTab.addEventListener('click', () => {
+      appContainer.classList.remove('hidden');
+      helloContainer.classList.add('hidden');
+    });
+    helloTab.addEventListener('click', () => {
+      helloContainer.classList.remove('hidden');
+      appContainer.classList.add('hidden');
+    });
+  });
+</script>
+
+<section class="code-block-container">
+  <section class="tabs-container">
+    <p id="app-html-tab">app.html</p>
+    <p id="hello-html-tab">hello.html</p>
+  </section>
+  <section id="app-html-container">
+    <p class="code-line">&lt;!--</p>
+    <p class="code-line">&nbsp;&nbsp;import './hello.html'</p>
+    <p class="code-line">--&gt;</p>
+    <p class="code-line">&nbsp;</p>
+    <p class="code-line">
+      <span class="red">&lt;hello</span>
+      <span class="red">/&gt;</span>
+    </p>
+  </section>
+  <section id="hello-html-container" class="hidden">
+    <p class="code-line">
+      <span class="red">&lt;p&gt;</span>Hello World!<span class="red"
+        >&lt;/p&gt;</span
+      >
+    </p>
+  </section>
+</section>
+
+<style>
+  .code-block-container {
+    background-color: rgb(49, 50, 55);
+    width: 500px;
+    height: 200px;
+    border-radius: 8px 0 0 8px;
+    padding: 0;
+    overflow: auto;
+  }
+
+  .tabs-container {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid grey;
+  }
+
+  .tabs-container > p {
+    padding: 0.5rem 1rem;
+    margin: 0;
+    border-right: 1px solid grey;
+  }
+
+  .tabs-container > p:hover {
+    cursor: pointer;
+    background-color: rgb(65, 65, 65);
+  }
+
+  .code-line {
+    color: rgb(189, 189, 189);
+    font-family: monospace;
+    line-height: 0.5rem;
+    padding-left: 1rem;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .red {
+    color: rgb(244, 114, 112);
+  }
+
+  .orange {
+    color: rgb(250, 165, 90);
+  }
+
+  .green {
+    color: rgb(119, 186, 119);
+  }
+</style>

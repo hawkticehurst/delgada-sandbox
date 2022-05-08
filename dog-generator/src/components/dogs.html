@@ -1,0 +1,56 @@
+<script>
+  window.addEventListener('load', async () => {
+    const btn = document.getElementById('dog-btn');
+    btn.addEventListener('click', await getRandomDog);
+    await getRandomDog();
+  });
+
+  async function getRandomDog() {
+    const url = 'https://dog.ceo/api/breeds/image/random';
+    try {
+      const response = await fetch(url);
+      const json = await response.json();
+      const imgsrc = json.message;
+      const img = document.getElementById('dog-image');
+      img.setAttribute('src', imgsrc);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+</script>
+
+<section id="dog-image-container">
+  <button id="dog-btn">New Dog!</button>
+  <img id="dog-image" src="" alt="A random photo of a dog." />
+</section>
+
+<style>
+  #dog-image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #dog-image {
+    border-radius: 8px;
+    margin: 1rem;
+    width: 500px;
+    height: auto;
+  }
+
+  button {
+    font-family: inherit;
+    font-size: 16px;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    background-color: rgb(67, 42, 230);
+    padding: 0.75rem 1rem;
+    margin: 1rem;
+  }
+
+  button:hover {
+    cursor: pointer;
+    background-color: rgb(53, 32, 187);
+  }
+</style>
